@@ -1,0 +1,3 @@
+log show --predicate 'processImagePath CONTAINS[c] "CocoaWebView"'
+
+log show --predicate 'processImagePath CONTAINS "CocoaWebView"' --style syslog --info --debug

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# download to specific path
+# cd target/path && { curl -O URL ; cd -; }
+
+# git clone
+# git clone git@github.xxxx.com:blablabla/reponame.git /Users/myname/dev/myfolder
+
+# download and unzip file
+
+# mkdir /Users/aronsommer/Desktop/tmp && \
+rm -r /Users/aronsommer/Desktop/tmp; mkdir /Users/aronsommer/Desktop/tmp && \
+cd /Users/aronsommer/Desktop/tmp && \
+curl -L https://aronsommer.com/test/export_23071964.zip > file.zip && \
+unzip file.zip && \
+rm file.zip

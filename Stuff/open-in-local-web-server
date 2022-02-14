@@ -1,0 +1,12 @@
+#!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "${DIR}"
+
+pwd
+
+#open http://localhost:8000
+
+# kill server if already running
+kill -9 $(lsof -ti:8000)
+
+python2 -m SimpleHTTPServer 8000
