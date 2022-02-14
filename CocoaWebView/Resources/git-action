@@ -1,0 +1,23 @@
+#!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "${DIR}/Content"
+
+pwd
+
+if [ -d .git ]; then
+    : # This is a git repository
+    echo "Its a git"
+    ../git_xcode13 clean -df
+    ../git_xcode13 reset --hard
+    ../git_xcode13 fetch origin
+    ../git_xcode13 pull origin main
+else
+    : # This is not a git repository
+    echo "Its not a git"
+    ../git_xcode13 init
+    ../git_xcode13 remote add origin https://github.com/aronsommer/altstadtwinterthur.git
+    ../git_xcode13 clean -df
+    ../git_xcode13 reset --hard
+    ../git_xcode13 fetch origin
+    ../git_xcode13 pull origin main
+fi

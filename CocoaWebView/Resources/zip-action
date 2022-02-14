@@ -1,0 +1,11 @@
+#!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "${DIR}/Content"
+
+pwd
+
+rm -rf files; mkdir files && \
+cd files && \
+curl -L https://aronsommer.com/test/export_23071964.zip > file.zip && \
+unzip file.zip && \
+rm file.zip
