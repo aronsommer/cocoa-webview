@@ -9,11 +9,21 @@
 
 @implementation AppDelegate
 
+// Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
+
 - (void)awakeFromNib
 {
+    
+}
+
+// Tells the delegate when the app has finished launching.
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    
     //[self homePage:self];
     [self loadFile];
     
+    // Say hello :)
     NSSpeechSynthesizer * syn = [[NSSpeechSynthesizer alloc] init];
     [syn startSpeakingString:@"Hello"];
     NSLog(@"App has started");
@@ -102,6 +112,10 @@
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:@"/bin/bash"];
     [task setArguments:[NSArray arrayWithObjects:[[NSBundle mainBundle] pathForResource:@"git-action" ofType:@""], nil]];
+    // do things after completion
+        task.terminationHandler = ^(NSTask *task){
+            NSLog(@"Git action has finished");
+        };
         [task launch];
 }
 
