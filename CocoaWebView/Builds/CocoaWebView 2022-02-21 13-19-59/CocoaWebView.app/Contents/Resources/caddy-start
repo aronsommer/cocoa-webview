@@ -1,0 +1,13 @@
+#!/bin/bash
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "${DIR}"
+
+pwd
+
+#open http://localhost:2015
+
+# kill server if already running
+kill -9 $(lsof -ti:2015)
+./caddy_darwin_amd64 stop
+
+./caddy_darwin_amd64 file-server --listen :2015 --root Content/
